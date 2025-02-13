@@ -10,12 +10,14 @@ import Details from "../components/Details";
 import Category from "../components/Category";
 import PrivateRoute from "../components/PrivateRoute";
 import UpdateBooks from "../components/UpdateBooks";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    //   errorElement: <h2>Rought not found</h2>,
+    // errorElement:<ErrorPage/>,
+    
     children: [
       {
         path: '/',
@@ -30,29 +32,29 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: '/All Books',
+        path: '/AllBooks',
         element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-        loader: () => fetch('https://library-management-system-blush-pi.vercel.app/books')
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/books`)
       },
       {
-        path: '/Add Books',
+        path: '/AddBooks',
         element: <PrivateRoute><AddBooks></AddBooks></PrivateRoute>
       },
       {
         path: '/updateBooks/:id',
         element: <UpdateBooks></UpdateBooks>,
-        loader: ({ params }) => fetch(`https://library-management-system-blush-pi.vercel.app/books/${params.id}`)
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/books/${params.id}`)
       },
       {
-        path: '/Borrowed Books',
+        path: '/BorrowedBooks',
         element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-        loader: () => fetch('https://library-management-system-blush-pi.vercel.app/borrowedBooks')
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/borrowedBooks`)
       },
       {
         path: '/category/:category',
         element: <Category></Category>,
         loader: async ({ params }) => {
-          const res = await fetch('https://library-management-system-blush-pi.vercel.app/books')
+          const res = await fetch(`${import.meta.env.VITE_API_URL}/books`)
           const data = await res.json()
           // console.log(data,params.lesson_no)
           const singleData = data.filter(d => d.category == params.category)
@@ -63,7 +65,7 @@ const router = createBrowserRouter([
         path: '/details/:id',
         element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader: async ({ params }) => {
-          const res = await fetch('https://library-management-system-blush-pi.vercel.app/books')
+          const res = await fetch(`${import.meta.env.VITE_API_URL}/books`)
           const data = await res.json()
           // console.log(data,params.lesson_no)
           const singleData = data.find(d => d._id == params.id)

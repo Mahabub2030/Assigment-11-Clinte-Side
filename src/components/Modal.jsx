@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Modal = ({ book }) => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
+   
 
 
   const handleSubmit = (e) => {
@@ -19,7 +22,7 @@ const Modal = ({ book }) => {
     const Rdate = e.target.Rdate.value;
     const applicationInfo = { image, rating, email, name, title, authorName, category, Bdate, Rdate };
 
-    fetch("https://library-management-system-blush-pi.vercel.app/borrowedBooks", {
+    fetch(`${import.meta.env.VITE_API_URL}/borrowedBooks`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,12 +41,11 @@ const Modal = ({ book }) => {
             icon: "success",
             confirmButtonText: "Done",
           });
+
         }
+        navigate('/BorrowedBooks')
       });
   };
-
-
-
   return (
     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle ">
       <div className="modal-box bg-blue-200">

@@ -4,7 +4,7 @@ import v3 from "../assets/v3-2.jpg";
 
 const MainBanner = () => {
   return (
-    <div className="w-10/12 mx-auto mt-10">
+    <div className="w-full mx-auto">
       <div className="carousel w-full  h-[400px] md:h-[600px] xl:h-[800px]">
         <div id="slide1" className="carousel-item rounded-xl relative w-full">
           <img src={v1} className="w-full rounded-xl" />

@@ -20,7 +20,7 @@ const Navbar = () => {
       .catch((err) => console.log("Logiun Failed"));
   };
   return (
-    <div className="navbar bg-gray-200 mb-4 rounded-xl mt-1">
+    <div className="navbar bg-gray-200 mb-4 rounded-xl w-full ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,25 +41,25 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100  z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/All Books">All Books</NavLink>
+              <NavLink to="/AllBooks">All Books</NavLink>
             </li>
             <li>
-              <NavLink to="/Add Books">Add Books</NavLink>
+              <NavLink to="/AddBooks">Add Books</NavLink>
             </li>
             <li>
-              <NavLink to="/Borrowed Books">Borrowed Books</NavLink>
+              <NavLink to="/BorrowedBooks">Borrowed Books</NavLink>
             </li>
           </ul>
         </div>
         <a href="/" className="btn btn-ghost text-xl">
           <img src={logo} alt="" />
-          <h2 className="font-bold bg-gradient-to-r from-purple-700 to-blue-500 bg-clip-text text-transparent">Next Chapter</h2>
+          <h2 className="font-bold bg-gradient-to-r from-purple-700 to-blue-500 bg-clip-text text-transparent sm:hidding">Next Chapter</h2>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -68,13 +68,13 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/All Books">All Books</NavLink>
+            <NavLink to="/AllBooks">All Books</NavLink>
           </li>
           <li>
-            <NavLink to="/Add Books">Add Books</NavLink>
+            <NavLink to="/AddBooks">Add Books</NavLink>
           </li>
           <li>
-            <NavLink to="/Borrowed Books">Borrowed Books</NavLink>
+            <NavLink to="/BorrowedBooks">Borrowed Books</NavLink>
           </li>
         </ul>
       </div>

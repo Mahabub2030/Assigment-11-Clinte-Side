@@ -1,10 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateBooks = () => {
   const book = useLoaderData();
+  const navigate = useNavigate();
   console.log(book);
   const {
     _id,
@@ -42,7 +43,7 @@ const UpdateBooks = () => {
     console.log(updatedBook);
 
     // send data to the server
-    fetch(`https://library-management-system-blush-pi.vercel.app/books/${_id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/books/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -60,6 +61,7 @@ const UpdateBooks = () => {
             confirmButtonText: "Done",
           });
         }
+        navigate("/AllBooks");
       });
   };
 

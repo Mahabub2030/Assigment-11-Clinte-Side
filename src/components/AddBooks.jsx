@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../pages/LoadingSpinner ";
+import { useNavigate } from "react-router-dom";
 
 const AddBooks = () => {
+   const {loading, setLoding} = useState()
+   const navigate = useNavigate()
+   
   const { user } = useContext(AuthContext);
   const handleAddBooks = (e) => {
     e.preventDefault();
@@ -32,7 +37,7 @@ const AddBooks = () => {
     console.log(addBook);
 
     // send data to the server
-    fetch("https://library-management-system-blush-pi.vercel.app/books", {
+    fetch(`${import.meta.env.VITE_API_URL}/books`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,10 +55,12 @@ const AddBooks = () => {
             confirmButtonText: "Done",
           });
         }
+        navigate('/AllBooks')
       });
   };
+    if (loading) return <LoadingSpinner />
   return (
-    <div className="bg-gray-200 w-10/12 mx-auto px-10 rounded-xl my-10">
+    <div className="bg-gray-200 w-10/12 mx-auto px-10 rounded-xl my-10 p-5">
       <Helmet>
         <title>Next Chapter | Add books</title>
       </Helmet>
