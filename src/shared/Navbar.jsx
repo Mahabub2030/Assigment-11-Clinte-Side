@@ -1,11 +1,4 @@
-// import React, { useContext } from "react";
-// import { Link, NavLink } from "react-router-dom";
-// import AuthContext from "../context/AuthContext";
-// import logo from "../assets/kids.gif";
-// import Swal from "sweetalert2";
 
-
-// export default Navbar;
 import React, { useContext, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
