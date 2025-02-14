@@ -1,5 +1,4 @@
 import React from "react";
-
 const Feature = () => {
   return (
     <div className="bg-gray-100 py-10 my-20">
