@@ -6,15 +6,15 @@ import { useLoaderData } from "react-router-dom";
 import BookCard from "./bookCard";
 
 const AllBooks = () => {
-  const[allBooks, setAllBooks] = useState()
-  const AllBooks = useLoaderData();
+  // const[allBooks, setAllBooks] = useState()
+  const allBooks = useLoaderData();
   const [searchTerm, setSearchTerm] = useState("");
   const [sortedBooks, setSortedBooks] = useState("");
 
   useEffect(() => {
-    setSortedBooks(AllBooks);
-  }, [AllBooks]); // Ensure sortedBooks updates when allBooks changes
-  console.log(AllBooks);
+    setSortedBooks(allBooks);
+  }, [allBooks]); // Ensure sortedBooks updates when allBooks changes
+  console.log(allBooks);
   
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -49,7 +49,7 @@ const AllBooks = () => {
         </button>
       </div>
       <div className="lg:w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 p-10">
-        {AllBooks.map((book) => (
+        {allBooks.map((book) => (
           <BookCard key={book._id} book={book} />
         ))}
       </div>

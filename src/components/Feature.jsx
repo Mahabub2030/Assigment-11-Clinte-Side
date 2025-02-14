@@ -6,7 +6,7 @@ const Feature = () => {
       <h2 className="text-center text-2xl bg-gradient-to-r from-purple-700 to-blue-500 bg-clip-text text-transparent font-bold mb-12">
         Why Choose Our Library Management System
       </h2>
-      <div className="flex flex-col md:flex-row justify-center gap-6 px-4">
+      <div className="flex flex-col md:flex-row justify-center gap-6 px-4 mt-10">
         {/* Feature 1 */}
         <div className="bg-white p-4 hover:bg-slate-200 rounded-lg shadow text-center mb-10">
           <div className="text-4xl mb-3">⏱️</div>

@@ -43,7 +43,7 @@ const UpdateBooks = () => {
     console.log(updatedBook);
 
     // send data to the server
-    fetch(`${import.meta.env.VITE_API_URL}/books/${_id}`, {
+    fetch(`https://server-pied-omega.vercel.app/books/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

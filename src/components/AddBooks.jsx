@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import AuthContext from "../context/AuthContext";
-import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
-import LoadingSpinner from "../pages/LoadingSpinner ";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import AuthContext from "../context/AuthContext";
+import LoadingSpinner from "../pages/LoadingSpinner ";
 
 const AddBooks = () => {
    const {loading, setLoding} = useState()
@@ -37,7 +37,7 @@ const AddBooks = () => {
     console.log(addBook);
 
     // send data to the server
-    fetch(`${import.meta.env.VITE_API_URL}/books`, {
+    fetch(`https://server-pied-omega.vercel.app/books`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

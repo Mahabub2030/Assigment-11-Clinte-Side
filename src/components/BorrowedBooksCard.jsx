@@ -1,7 +1,7 @@
 import React from "react";
-import Swal from "sweetalert2";
 import ReactStars from "react-rating-stars-component";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const BorrowedBooksCard = ({ borrowedBook }) => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const BorrowedBooksCard = ({ borrowedBook }) => {
       confirmButtonText: "Yes, return it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${import.meta.env.VITE_API_URL}/borrowedBooks/${_id}`, {
+        fetch(`https://server-pied-omega.vercel.app/borrowedBooks/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
