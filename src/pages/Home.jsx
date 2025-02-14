@@ -6,7 +6,6 @@ import { Helmet } from 'react-helmet-async';
 import Feature from '../components/Feature';
 import WelcomeBox from '../components/WelcomeBox';
 import PopularBooks from '../components/PopularBooks';
-
 const Home = () => {
     return (
         <div>

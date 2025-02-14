@@ -23,8 +23,6 @@ const AllBooks = () => {
     sortedBooks(e.target.value);
     console.log('btn ')
   }
-
-
   return (
     <div>
       <Helmet>
